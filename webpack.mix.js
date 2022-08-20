@@ -11,7 +11,10 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.react('resources/js/app.js', 'public/js')
+mix.js('resources/js/app.js', 'public/js/app')
+    .react()
+    .extract(['react', 'axios', 'xstate', '@xstate/react', 'yup', 'formik'])
     .postCss('resources/css/app.css', 'public/css', [
         //
-    ]);
+    ])
+    .version();
