@@ -1,5 +1,86 @@
 (self["webpackChunk"] = self["webpackChunk"] || []).push([["/vendor"],{
 
+/***/ "./node_modules/@xstate/react/es/useActor.js":
+/*!***************************************************!*\
+  !*** ./node_modules/@xstate/react/es/useActor.js ***!
+  \***************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "isActorWithState": () => (/* binding */ isActorWithState),
+/* harmony export */   "useActor": () => (/* binding */ useActor)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var use_isomorphic_layout_effect__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! use-isomorphic-layout-effect */ "./node_modules/use-isomorphic-layout-effect/dist/use-isomorphic-layout-effect.browser.esm.js");
+/* harmony import */ var _useConstant__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./useConstant */ "./node_modules/@xstate/react/es/useConstant.js");
+/* harmony import */ var use_sync_external_store_shim__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! use-sync-external-store/shim */ "./node_modules/use-sync-external-store/shim/index.js");
+
+
+
+
+function isActorWithState(actorRef) {
+    return 'state' in actorRef;
+}
+function isDeferredActor(actorRef) {
+    return 'deferred' in actorRef;
+}
+function defaultGetSnapshot(actorRef) {
+    return 'getSnapshot' in actorRef
+        ? actorRef.getSnapshot()
+        : isActorWithState(actorRef)
+            ? actorRef.state
+            : undefined;
+}
+function useActor(actorRef, getSnapshot) {
+    if (getSnapshot === void 0) { getSnapshot = defaultGetSnapshot; }
+    var actorRefRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(actorRef);
+    var deferredEventsRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)([]);
+    var subscribe = (0,react__WEBPACK_IMPORTED_MODULE_0__.useCallback)(function (handleStoreChange) {
+        var unsubscribe = actorRef.subscribe(handleStoreChange).unsubscribe;
+        return unsubscribe;
+    }, [actorRef]);
+    var boundGetSnapshot = (0,react__WEBPACK_IMPORTED_MODULE_0__.useCallback)(function () { return getSnapshot(actorRef); }, [
+        actorRef,
+        getSnapshot
+    ]);
+    var storeSnapshot = (0,use_sync_external_store_shim__WEBPACK_IMPORTED_MODULE_2__.useSyncExternalStore)(subscribe, boundGetSnapshot, boundGetSnapshot);
+    var send = (0,_useConstant__WEBPACK_IMPORTED_MODULE_3__["default"])(function () { return function () {
+        var args = [];
+        for (var _i = 0; _i < arguments.length; _i++) {
+            args[_i] = arguments[_i];
+        }
+        var event = args[0];
+        if ( true && args.length > 1) {
+            console.warn("Unexpected payload: ".concat(JSON.stringify(args[1]), ". Only a single event object can be sent to actor send() functions."));
+        }
+        var currentActorRef = actorRefRef.current;
+        // If the previous actor is a deferred actor,
+        // queue the events so that they can be replayed
+        // on the non-deferred actor.
+        if (isDeferredActor(currentActorRef) && currentActorRef.deferred) {
+            deferredEventsRef.current.push(event);
+        }
+        else {
+            currentActorRef.send(event);
+        }
+    }; });
+    (0,use_isomorphic_layout_effect__WEBPACK_IMPORTED_MODULE_1__["default"])(function () {
+        actorRefRef.current = actorRef;
+        // Dequeue deferred events from the previous deferred actorRef
+        while (deferredEventsRef.current.length > 0) {
+            var deferredEvent = deferredEventsRef.current.shift();
+            actorRef.send(deferredEvent);
+        }
+    }, [actorRef]);
+    return [storeSnapshot, send];
+}
+
+
+/***/ }),
+
 /***/ "./node_modules/@xstate/react/es/useConstant.js":
 /*!******************************************************!*\
   !*** ./node_modules/@xstate/react/es/useConstant.js ***!
