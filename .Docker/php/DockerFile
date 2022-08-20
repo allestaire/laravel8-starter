@@ -1,0 +1,44 @@
+FROM php:8.0-fpm-alpine
+
+
+RUN apk add --no-cache --virtual .build-deps \
+    openssh \
+    $PHPIZE_DEPS \
+    curl-dev \
+    libtool \
+    libxml2-dev \
+    libzip-dev \
+    libpng-dev \
+    oniguruma-dev \
+  && apk add --no-cache \
+    curl \
+    git \
+    mysql-client \
+    libintl \
+    icu \
+    icu-dev \
+    libzip-dev \
+  && docker-php-ext-install \
+    bcmath \
+    curl \
+    mbstring \
+    pdo \
+    pdo_mysql \
+    pcntl \
+    xml \
+    zip \
+    intl \
+    soap \
+    gd \
+  && curl -s https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin/ --filename=composer
+
+
+RUN addgroup -S dev
+
+RUN adduser -S -D -h /var/www docker dev
+
+RUN chown -R docker:dev /var/www
+
+USER docker:dev
+
+WORKDIR /var/www
