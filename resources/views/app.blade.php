@@ -14,8 +14,8 @@
 <body>
     <div id="app"></div>
 
-    <script defer src={{ mix('js/app/manifest.js') }}></script>
-    <script defer src={{ mix('js/app/vendor.js') }}></script>
-    <script defer src={{ mix('js/app/app.js') }}></script>
+    <script defer src={{ asset('js/app/manifest.js') }}></script>
+    <script defer src={{ asset('js/app/vendor.js') }}></script>
+    <script defer src={{ asset('js/app/app.js') }}></script>
 </body>
 </html>

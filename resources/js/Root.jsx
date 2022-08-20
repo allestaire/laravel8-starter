@@ -12,6 +12,8 @@ import {
 import { GlobalStateProvider, GlobalStateContext } from './machines/global.state'
 import { useActor } from '@xstate/react'
 import LoginPage from './pages/Login'
+import SignupPage from './pages/Signup'
+import DashboardPage from './pages/Dashboard'
 
 const defaultTheme = createTheme({
   // palette: {
@@ -36,7 +38,10 @@ function Root() {
               <LoginPage />
             </Route>
             <Route path="/signup">
-              <span>Sign up page</span>
+              <SignupPage />
+            </Route>
+            <Route path="/dashboard">
+              <DashboardPage />
             </Route>
             <Route path="*">
               <span>Page not found!</span>

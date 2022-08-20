@@ -134,7 +134,7 @@
 /******/ 		// undefined = chunk not loaded, null = chunk preloaded/prefetched
 /******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
 /******/ 		var installedChunks = {
-/******/ 			"/js/app/manifest": 0,
+/******/ 			"/manifest": 0,
 /******/ 			"css/app": 0
 /******/ 		};
 /******/ 		

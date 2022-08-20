@@ -1,5 +1,5 @@
 const mix = require('laravel-mix');
-
+const package = require('./package.json')
 /*
  |--------------------------------------------------------------------------
  | Mix Asset Management
@@ -11,10 +11,14 @@ const mix = require('laravel-mix');
  |
  */
 
+
+// window._buildVersion = package.version
+
 mix.js('resources/js/app.js', 'public/js/app')
     .react()
     .extract(['react', 'axios', 'xstate', '@xstate/react', 'yup', 'formik'])
     .postCss('resources/css/app.css', 'public/css', [
         //
     ])
+    .setPublicPath('public/js/app')
     .version();
