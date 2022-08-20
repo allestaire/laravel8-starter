@@ -14,6 +14,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/tokens/create', function(Request $request) {
+    $user = App\Models\User::factory()->create();
+    $token = $user->createToken('admin');
+
+    return response()->json(['token' => $token->plainTextToken]);
+});
+
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });

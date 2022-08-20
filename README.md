@@ -10,11 +10,13 @@
 
 ### Includes
 
-- Laravel 8
+- [Laravel 8](https://laravel.com/docs/8.x)
 - PHP 8
 - MySQL 8
 - NginX (SSL Configured)
-- Authentication ([Sanctum](https://laravel.com/docs/8.x/sanctum#issuing-api-tokens))
+- [Sanctum](https://laravel.com/docs/8.x/sanctum#issuing-api-tokens)
+- [Packager](https://github.com/JackieDo/laravel-packager)
+- [Role and Permission](https://github.com/Als-Laravel-Packages/Rap)
 
 
 ### Installation

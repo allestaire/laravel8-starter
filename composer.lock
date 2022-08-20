@@ -4,8 +4,59 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ff2462684ff1df9e1ef3183e1ebce7e3",
+    "content-hash": "aeb76c467237cf4787c2a867e310d4ff",
     "packages": [
+        {
+            "name": "aldev/rap",
+            "version": "1.0.0",
+            "dist": {
+                "type": "path",
+                "url": "packages/aldev/rap",
+                "reference": "7e0b4e477afcdc426fe5a88caafe869eb801b5cd"
+            },
+            "require": {
+                "illuminate/support": "^5.0|^6.0|^7.0|^8.0|^9.0",
+                "php": ">=5.4.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "aliases": {
+                        "Rap": "Aldev\\Rap\\Facades\\Rap"
+                    },
+                    "providers": [
+                        "Aldev\\Rap\\RapServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "files": [
+                    "src/helpers.php"
+                ],
+                "psr-4": {
+                    "Aldev\\Rap\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Al Lestaire Acasio",
+                    "email": "allestaire.acasio@gmail.com"
+                }
+            ],
+            "description": "The Rap",
+            "homepage": "https://rap.com",
+            "keywords": [
+                "example",
+                "key",
+                "words"
+            ],
+            "transport-options": {
+                "relative": true
+            }
+        },
         {
             "name": "asm89/stack-cors",
             "version": "v2.1.1",
@@ -952,6 +1003,121 @@
                 }
             ],
             "time": "2022-06-20T21:43:11+00:00"
+        },
+        {
+            "name": "jackiedo/laravel-packager",
+            "version": "1.0.9",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/JackieDo/laravel-packager.git",
+                "reference": "1613450ccf99ffa46617093a739b0a6a6e98bd8d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/JackieDo/laravel-packager/zipball/1613450ccf99ffa46617093a739b0a6a6e98bd8d",
+                "reference": "1613450ccf99ffa46617093a739b0a6a6e98bd8d",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/console": "^5.1|^6.0|^7.0|^8.0|^9.0",
+                "illuminate/filesystem": "^5.1|^6.0|^7.0|^8.0|^9.0",
+                "illuminate/support": "^5.1|^6.0|^7.0|^8.0|^9.0",
+                "jackiedo/path-helper": "^1.0",
+                "php": ">=5.4.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Jackiedo\\Packager\\PackagerServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "files": [
+                    "src/helpers.php"
+                ],
+                "psr-4": {
+                    "Jackiedo\\Packager\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jackie Do",
+                    "email": "anhvudo@gmail.com",
+                    "homepage": "https://github.com/JackieDo"
+                }
+            ],
+            "description": "A CLI tool to create packages for Laravel application.",
+            "keywords": [
+                "Skeleton",
+                "builder",
+                "generator",
+                "laravel",
+                "package",
+                "packer"
+            ],
+            "support": {
+                "issues": "https://github.com/JackieDo/laravel-packager/issues",
+                "source": "https://github.com/JackieDo/laravel-packager/tree/1.0.9"
+            },
+            "time": "2022-03-17T18:12:24+00:00"
+        },
+        {
+            "name": "jackiedo/path-helper",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/JackieDo/Path-Helper.git",
+                "reference": "43179cfa17d01f94f4889f286430c2cec1071fb2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/JackieDo/Path-Helper/zipball/43179cfa17d01f94f4889f286430c2cec1071fb2",
+                "reference": "43179cfa17d01f94f4889f286430c2cec1071fb2",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "src/helpers.php"
+                ],
+                "psr-4": {
+                    "Jackiedo\\PathHelper\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jackie Do",
+                    "email": "anhvudo@gmail.com"
+                }
+            ],
+            "description": "Helper class for working with local paths in PHP",
+            "homepage": "https://github.com/JackieDo/path-helper",
+            "keywords": [
+                "helper",
+                "helpers",
+                "library",
+                "path",
+                "paths",
+                "php"
+            ],
+            "support": {
+                "issues": "https://github.com/JackieDo/Path-Helper/issues",
+                "source": "https://github.com/JackieDo/Path-Helper/tree/v1.0.0"
+            },
+            "time": "2022-03-07T20:28:08+00:00"
         },
         {
             "name": "laravel/framework",
