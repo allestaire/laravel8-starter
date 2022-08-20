@@ -17,6 +17,11 @@
 - [Sanctum](https://laravel.com/docs/8.x/sanctum#issuing-api-tokens)
 - [Packager](https://github.com/JackieDo/laravel-packager)
 - [Role and Permission](https://github.com/Als-Laravel-Packages/Rap)
+- [React](https://reactjs.org/)
+- [YupJS](https://github.com/jquense/yup)
+- [Formik](https://formik.org/)
+- [Machine State](https://xstate.js.org/docs/)
+- [React Router](https://v5.reactrouter.com/web/guides/quick-start)
 
 
 ### Installation
