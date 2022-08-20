@@ -1,5 +1,9 @@
 {
     "private": true,
+    "version": "1.0.0",
+    "engines": {
+        "node": "v14.19.0"
+    },
     "scripts": {
         "dev": "npm run development",
         "development": "mix",
@@ -8,6 +12,28 @@
         "hot": "mix watch --hot",
         "prod": "npm run production",
         "production": "mix --production"
+    },
+    "dependencies": {
+        "@babel/core": "^7.0.0-0",
+        "@babel/plugin-proposal-object-rest-spread": "^7.15.6",
+        "@babel/plugin-syntax-dynamic-import": "^7.8.3",
+        "@babel/plugin-transform-runtime": "^7.15.8",
+        "@babel/preset-env": "^7.15.8",
+        "@babel/preset-react": "^7.17.12",
+        "@emotion/react": "^11.9.0",
+        "@emotion/styled": "^11.8.1",
+        "@mui/icons-material": "^5.8.0",
+        "@mui/material": "^5.8.0",
+        "@mui/styles": "5.8.3",
+        "@xstate/react": "^3.0.0",
+        "formik": "^2.2.9",
+        "moment": "^2.29.4",
+        "react": "^18.2.0",
+        "react-dom": "^18.0.0",
+        "webpack": "^5.60.0",
+        "webpack-cli": "^4.9.1",
+        "xstate": "^4.32.1",
+        "yup": "^0.32.11"
     },
     "devDependencies": {
         "axios": "^0.21",
