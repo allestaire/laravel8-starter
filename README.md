@@ -29,5 +29,7 @@
 - Run `docker compose up -d`
 - Install composer requirements `docker compose exec php composer install`
 - Running migration `docker compose exec php php artisan migrate --seed`
-
+- Run `yarn` or `npm install` for frontend packages
+- Run `yarn dev` or `npm run dev` building for development
+- Run `yarn watch` or `npm run watch` for developing
 
