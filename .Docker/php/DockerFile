@@ -32,6 +32,11 @@ RUN apk add --no-cache --virtual .build-deps \
     gd \
   && curl -s https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin/ --filename=composer
 
+RUN mkdir -p /var/app/ssl
+
+COPY .Docker/ssl /var/ssl
+
+RUN openssl req -x509 -nodes -days 730 -newkey rsa:2048 -keyout /var/app/ssl/docker.key -out /var/app/ssl/docker.pem -config /var/ssl/req.cnf -sha256
 
 RUN addgroup -S dev
 

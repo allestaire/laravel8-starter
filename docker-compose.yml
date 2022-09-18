@@ -2,13 +2,17 @@ version: '3'
 services:
     php:
         build:
+            context: .
             dockerfile: ./.Docker/php/DockerFile
             args:
                 WWWGROUP: '${WWWGROUP:-docker}'
         volumes:
             - './:/var/www'
+            - /var/www/.Docker
+            - /var/app/ssl
         networks:
             - boilerplate_network
+
     mysql:
         image: 'mysql/mysql-server:8.0'
         ports:
@@ -34,8 +38,8 @@ services:
           context: ./.Docker/nginx
         volumes_from:
           - php
-        volumes:
-          - ./.Docker/ssl:/etc/nginx/ssl
+        # volumes:
+        #   - ./.Docker/ssl:/etc/nginx/ssl
         ports:
           - "80:80"
           - "443:443"
