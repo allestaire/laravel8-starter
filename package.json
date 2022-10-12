@@ -1,10 +1,11 @@
 {
     "private": true,
-    "version": "1.0.0",
+    "version": "v1.0.1",
     "engines": {
-        "node": "v14.19.0"
+        "node": ">=v14.x.x"
     },
     "scripts": {
+        "prepare": "husky install",
         "dev": "npm run development",
         "development": "mix",
         "watch": "mix watch",
@@ -38,8 +39,31 @@
     },
     "devDependencies": {
         "axios": "^0.21",
+        "eslint": "^8.25.0",
+        "eslint-plugin-react": "^7.31.10",
+        "husky": "^8.0.1",
         "laravel-mix": "^6.0.6",
+        "lint-staged": "^13.0.3",
         "lodash": "^4.17.19",
-        "postcss": "^8.1.14"
-    }
+        "postcss": "^8.1.14",
+        "prettier": "2.7.1"
+    },
+    "lint-staged": {
+        "resources/js/**/*.(js|jsx)": [
+            "eslint",
+            "prettier --write --ignore-unknown"
+        ]
+    },
+    "prettier": {
+        "arrowParens": "always",
+        "singleQuote": true,
+        "useTabs": false,
+        "printWidth": 100,
+        "tabWidth": 2
+    },
+    "name": "promptering",
+    "main": "index.js",
+    "repository": "git@github.com:allestaire/laravel8-starter.git",
+    "author": "Al Lestaire Acasio <allestaire.acasio@fligno.com>",
+    "license": "MIT"
 }
